@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
 import com.patika.homework5.R
-import com.patika.homework5.ui.activities.adapter.MyViewPagerAdapter
+import com.patika.homework5.ui.adapter.MyViewPagerAdapter
 import com.patika.homework5.ui.favoritemovie.FavoriteMoviesFragment
 import com.patika.homework5.ui.movielist.MovieListFragment
 import com.patika.homework5.util.FAVORITES
 import com.patika.homework5.util.MOVIES
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 

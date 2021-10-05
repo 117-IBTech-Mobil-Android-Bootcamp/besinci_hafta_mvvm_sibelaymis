@@ -1,4 +1,4 @@
-package com.patika.homework5.ui.activities.adapter
+package com.patika.homework5.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

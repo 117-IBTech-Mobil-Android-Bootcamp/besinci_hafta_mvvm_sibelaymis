@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+    <variable
+        name="movieDetailState"
+        type="com.patika.homework5.ui.moviedetail.model.MovieDetailStateModel" />
+</data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.moviedetail.MovieDetailFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movie_poster_cv"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:cardCornerRadius="50dp"
+            android:layout_marginTop="-50dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{movieDetailState.imageUrl}" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="170dp"
+            app:cardCornerRadius="50dp"
+            android:layout_marginEnd="-20dp"
+            android:id="@+id/movie_rate_cv">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3.5">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_1"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="8.2"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="@{movieDetailState.averageVoteAsString}"
+                        android:textColor="@color/default_text_color"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="150,212"
+                        android:textSize="12sp"
+                        android:text="@{movieDetailState.voteCount}"
+                        android:textColor="@color/default_text_color"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_2"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Rate This"
+                        android:textColor="@color/default_text_color"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text=""/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="#51CF66"
+                        android:text="86"
+                        android:textColor="@color/white"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Metascore"
+                        android:textColor="@color/default_text_color"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="62 critic reviews"
+                        android:textColor="@color/default_text_color"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_rate_cv"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="30dp"
+            tools:text="Ford v Ferrari"
+            android:text="@{movieDetailState.title}"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/default_text_color"
+            android:id="@+id/movie_title"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/movie_title"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            app:layout_constraintEnd_toStartOf="@id/movie_age_range"
+            android:layout_marginTop="10dp"
+            android:text="@{movieDetailState.releaseDate}"
+            tools:text="2019"
+            android:textColor="@color/default_text_color_grey"
+            android:textSize="16sp"
+            android:id="@+id/movie_date"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/movie_date"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            app:layout_constraintEnd_toStartOf="@id/movie_time"
+            android:layout_marginTop="10dp"
+            android:text="@{movieDetailState.age}"
+            tools:text="PG-13"
+            android:textColor="@color/default_text_color_grey"
+            android:textSize="16sp"
+            android:id="@+id/movie_age_range"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/movie_age_range"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            app:layout_constraintEnd_toStartOf="@id/favorite_btn"
+            android:layout_marginTop="10dp"
+            android:text="@{movieDetailState.runTime}"
+            tools:text="2h 30min"
+            android:textColor="@color/default_text_color_grey"
+            android:textSize="16sp"
+            android:id="@+id/movie_time"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/movie_rate_cv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_favorite_border_black_24dp"
+            android:id="@+id/favorite_btn"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/movie_date"
+            app:layout_constraintStart_toStartOf="@id/movie_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:id="@+id/horizontal_scrollview">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/container"
+                android:layout_gravity="start"
+                android:gravity="clip_horizontal"
+                android:layout_height="match_parent">
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </HorizontalScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/movie_title"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_scrollview"
+            android:layout_marginTop="30dp"
+            android:text="Plot Summary"
+            android:textStyle="normal"
+            android:textSize="24sp"
+            android:textColor="@color/default_text_color"
+            android:id="@+id/summary_title"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/summary_title"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:text="@{movieDetailState.overview}"
+            tools:text="American car designer Carroll Shelby and driver Kn Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order."
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textColor="@color/default_text_color_grey"
+            android:id="@+id/summary_body"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
